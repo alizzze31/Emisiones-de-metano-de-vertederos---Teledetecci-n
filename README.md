@@ -39,7 +39,7 @@ También es importante hablar de los niveles. Estos indican como de procesado es
 
 ## Monitoreo de Movimiento del Suelo (EGMS)
 
-El **European Ground Motion Service (EGMS)** es un servicio de Copernicus que mide cuánto se mueve el suelo con precisión milimétrica.
+El **European Ground Motion Service (EGMS)** es un servicio de Copernicus que mide cuánto cambia la altitud el suelo con precisión milimétrica.
 
 ### 1. Objetivo
 Detectar posibles procesos de **subsidencia** (hundimiento) en las celdas del vertedero que puedan estar relacionados con la emisión de metano o la compactación de residuos.
