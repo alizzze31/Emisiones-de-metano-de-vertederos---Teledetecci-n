@@ -35,4 +35,18 @@ También es importante hablar de los niveles. Estos indican como de procesado es
 - **Nivel 2 (L2)**: Es el dato geofísico. Un software analiza la luz de L1 y calcula la cantidad de moléculas que hay de un gas específicio. Caso TROPOMI L2 CH_4, nos da directamente la concentración de metano en partes por mil millones (ppb) para cada pixel de mi AOI. Esto es loq ue descargaremos y analizaremos en python (?).
 - **Nivel 3 (L3)**: Dato mapeado y promediado. L2 son tiras de datos que tomó ese día el satlélite. L3 coge los datos de varios días y se oclocan en un mapa limpio. Se pueden perder fugas de metano.
 
+## 🌍 Monitoreo de Movimiento del Suelo (EGMS)
+
+El **European Ground Motion Service (EGMS)** es un servicio de Copernicus que mide cuánto se mueve el suelo con precisión milimétrica.
+
+### 1. Objetivo
+Detectar posibles procesos de **subsidencia** (hundimiento) en las celdas del vertedero que puedan estar relacionados con la emisión de metano o la compactación de residuos.
+
+### 2. Productos a utilizar (Disponibles desde 2016)
+* **Basic (L2a):** Movimiento medido en la línea de visión del satélite (LOS) respecto a un punto de referencia local.
+* **Calibrated (L2b):** Movimiento ajustado con modelos globales GNSS, permitiendo mediciones absolutas ya que compara el movimiento de Arico con el de cualquier otra parte de Europa.
+* **Ortho (L3):** Datos procesados para mostrar únicamente el movimiento vertical (arriba/abajo) u horizontal, facilitando la interpretación directa del hundimiento.
+
+### 3. Parámetro clave
+- **Velocidad de deformación:** Medida en milímetros por año (mm/y) para identificar cambios estructurales en el terreno a largo plazo.
 
