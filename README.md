@@ -11,7 +11,7 @@ He localizado el Complejo Ambiental de Tenerife (CAT-Arico) y estas son las coor
 
 Para tomar el área de aproximadamente un radio de 10-30 km al rededor de nuestras coordenadas, vamos a tomar un cuadrado sumandole y restandole 22 km en la la latitud y en la longitud. Teniendo en cuenta que 0.1º son unos 11km, si le sumamos y restamos 0.2º, obtenemos un cuadrado de 44km de alto y 44km de ancho. Por lo que, tendremos:
 
--**Latitud Norte (Lat + 0.2º)**: [28.31769]
--**Latitud Sur (Lat - 0.2º)**: [27.91769]
--**Longitud Este (Long + 0.2º)**: [16.68005]
--**Longitud Oeste (Long - 0.2º)**: [16.28005]
+- **Latitud Norte (Lat + 0.2º)**: [28.31769]
+- **Latitud Sur (Lat - 0.2º)**: [27.91769]
+- **Longitud Este (Long + 0.2º)**: [16.68005]
+- **Longitud Oeste (Long - 0.2º)**: [16.28005]
