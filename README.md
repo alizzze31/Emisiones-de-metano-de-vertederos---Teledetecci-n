@@ -1,4 +1,4 @@
-# Emisiones-de-metano-de-vertederos---Teledetecci-n
+# Emisiones-de-metano-de-vertederos---Teledeteccion
 Proyecto ULL/IPNA-CSIC enfocado en comparar la evolución de las emisiones de metano (CH4) y la compactación del terreno en el vertedero de Arico (2020-2025). Empleando teledetección (TROPOMI, EMIT) y datos EGMS para calcular flujos y analizar su correlación usando Python y QGIS.
 # Mi Proyecto de Emisiones - Día 1
 
