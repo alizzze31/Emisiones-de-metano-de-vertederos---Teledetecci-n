@@ -18,7 +18,9 @@ Para tomar el área de aproximadamente un radio de 10-30 km al rededor de nuestr
 
 Lectura de documentación:
 
--**TROPOMI**: TROPOspheric monitoring instrument, es el instrumento (sensor o cámara) que va  aborde del sentinel-5p de la ESA. Es un espectrómetro que mide gases en la atmósfera (por ejemplo el métano). Tiene una alta resolución, por eso nos permitirá detectar fuentes de emisión de vertederos. 
+## TROPOMI (Medición gases atmósfera)
+
+-**TROPOMI**: TROPOspheric monitoring instrument, es el instrumento (sensor o cámara) que va a borde del sentinel-5p de la ESA. Es un espectrómetro que mide gases en la atmósfera (por ejemplo el métano). Tiene una alta resolución, por eso nos permitirá detectar fuentes de emisión de vertederos. 
 
 -**PUM**: Product User Manual, es el manual de instrucciones de los archivos que contienen la información. Nos indica que carpetas hay en el archivo, como filtrar datos malos (qa_value), nos indica en que unidades vien ele metano...
 
@@ -35,7 +37,7 @@ También es importante hablar de los niveles. Estos indican como de procesado es
 - **Nivel 2 (L2)**: Es el dato geofísico. Un software analiza la luz de L1 y calcula la cantidad de moléculas que hay de un gas específicio. Caso TROPOMI L2 CH_4, nos da directamente la concentración de metano en partes por mil millones (ppb) para cada pixel de mi AOI. Esto es loq ue descargaremos y analizaremos en python (?).
 - **Nivel 3 (L3)**: Dato mapeado y promediado. L2 son tiras de datos que tomó ese día el satlélite. L3 coge los datos de varios días y se oclocan en un mapa limpio. Se pueden perder fugas de metano.
 
-## 🌍 Monitoreo de Movimiento del Suelo (EGMS)
+## Monitoreo de Movimiento del Suelo (EGMS)
 
 El **European Ground Motion Service (EGMS)** es un servicio de Copernicus que mide cuánto se mueve el suelo con precisión milimétrica.
 
@@ -45,8 +47,17 @@ Detectar posibles procesos de **subsidencia** (hundimiento) en las celdas del ve
 ### 2. Productos a utilizar (Disponibles desde 2016)
 * **Basic (L2a):** Movimiento medido en la línea de visión del satélite (LOS) respecto a un punto de referencia local.
 * **Calibrated (L2b):** Movimiento ajustado con modelos globales GNSS, permitiendo mediciones absolutas ya que compara el movimiento de Arico con el de cualquier otra parte de Europa.
-* **Ortho (L3):** Datos procesados para mostrar únicamente el movimiento vertical (arriba/abajo) u horizontal, facilitando la interpretación directa del hundimiento.
 
 ### 3. Parámetro clave
 - **Velocidad de deformación:** Medida en milímetros por año (mm/y) para identificar cambios estructurales en el terreno a largo plazo.
+
+## Identificación de Plumas con EMIT
+
+EMIT (Earth Surface Mineral Dust Source Investigation) es un instrumento de la NASA que está instalado en la Estación Espacial Internacional (ISS). Aunque su misión principal es estudiar el polvo mineral, se ha convertido en una herramienta para detectar metano.
+
+- **Instrumento:** Espectrómetro de imágenes instalado en la Estación Espacial Internacional.
+- **Resolución:** 60 metros (Alta resolución), ideal para identificar "puntos calientes" o plumas individuales en el complejo de Arico.
+- **Producto L2B Plume Complexes:** Archivos que muestran la concentración de metano por encima del nivel de fondo, permitiendo visualizar la forma y dirección de la pluma de gas.
+- **Uso en el proyecto:** Se utilizará para validar si las detecciones de TROPOMI provienen de focos específicos dentro del vertedero.
+* **Ortho (L3):** Datos procesados para mostrar únicamente el movimiento vertical (arriba/abajo) u horizontal, facilitando la interpretación directa del hundimiento.
 
