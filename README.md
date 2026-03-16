@@ -47,7 +47,8 @@ Detectar posibles procesos de **subsidencia** (hundimiento) en las celdas del ve
 ### 2. Productos a utilizar (Disponibles desde 2016)
 * **Basic (L2a):** Movimiento medido en la línea de visión del satélite (LOS) respecto a un punto de referencia local.
 * **Calibrated (L2b):** Movimiento ajustado con modelos globales GNSS, permitiendo mediciones absolutas ya que compara el movimiento de Arico con el de cualquier otra parte de Europa.
-
+* **Ortho (L3):** Datos procesados para mostrar únicamente el movimiento vertical (arriba/abajo) u horizontal, facilitando la interpretación directa del hundimiento.
+* 
 ### 3. Parámetro clave
 - **Velocidad de deformación:** Medida en milímetros por año (mm/y) para identificar cambios estructurales en el terreno a largo plazo.
 
@@ -59,5 +60,5 @@ EMIT (Earth Surface Mineral Dust Source Investigation) es un instrumento de la N
 - **Resolución:** 60 metros (Alta resolución), ideal para identificar "puntos calientes" o plumas individuales en el complejo de Arico.
 - **Producto L2B Plume Complexes:** Archivos que muestran la concentración de metano por encima del nivel de fondo, permitiendo visualizar la forma y dirección de la pluma de gas.
 - **Uso en el proyecto:** Se utilizará para validar si las detecciones de TROPOMI provienen de focos específicos dentro del vertedero.
-* **Ortho (L3):** Datos procesados para mostrar únicamente el movimiento vertical (arriba/abajo) u horizontal, facilitando la interpretación directa del hundimiento.
+
 
