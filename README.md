@@ -33,6 +33,6 @@ También es importante hablar de los niveles. Estos indican como de procesado es
 - **Nivel 0 (L0)**: Dato crudo.
 - **Nivel 1 (L1)**: Es el dato geolocalizado y calibrado. La luz se convierte a unidades de energía. L1B te indica cuanta luz de cada color llegó al sensor.
 - **Nivel 2 (L2)**: Es el dato geofísico. Un software analiza la luz de L1 y calcula la cantidad de moléculas que hay de un gas específicio. Caso TROPOMI L2 CH_4, nos da directamente la concentración de metano en partes por mil millones (ppb) para cada pixel de mi AOI. Esto es loq ue descargaremos y analizaremos en python (?).
-Nivel 3 (L3): Dato mapeado y promediado. L2 son tiras de datos que tomó ese día el satlélite. L3 coge los datos de varios días y se oclocan en un mapa limpio. Se pueden perder fugas de metano.
+- **Nivel 3 (L3)**: Dato mapeado y promediado. L2 son tiras de datos que tomó ese día el satlélite. L3 coge los datos de varios días y se oclocan en un mapa limpio. Se pueden perder fugas de metano.
 
-- 
+
