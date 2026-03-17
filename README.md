@@ -62,3 +62,5 @@ EMIT (Earth Surface Mineral Dust Source Investigation) es un instrumento de la N
 - **Uso en el proyecto:** Se utilizará para validar si las detecciones de TROPOMI provienen de focos específicos dentro del vertedero.
 
 
+¿Qué capas tomamos de EMGS?
+**Calibrated L2b ascendente**: A08-162, A07-060
