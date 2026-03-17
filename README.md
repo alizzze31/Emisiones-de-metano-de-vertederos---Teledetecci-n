@@ -64,3 +64,6 @@ EMIT (Earth Surface Mineral Dust Source Investigation) es un instrumento de la N
 
 ¿Qué capas tomamos de EMGS?
 **Calibrated L2b ascendente**: A08-162, A07-060
+**Calibrated L2b descendent**: D11-096
+
+Lo primero q voy a descargar es: ascendente: l2b 060 2019-2023 y descendente l2b096 2019-2023
