@@ -118,3 +118,51 @@ Los datos resultantes se exportaron y se mapearon utilizando una paleta de color
 
 Lo primero q voy a descargar es: ascendente: l2b 060 2019-2023 y descendente l2b096 2019-2023
 
+# Día 4: Refinamiento de Resolución y Análisis Vectorial Horizontal (InSAR)
+
+En esta jornada, el análisis de la deformación del Complejo Ambiental de Arico ha dado un salto cualitativo. Hemos pasado de una visualización unidimensional (hundimiento) a un estudio bidimensional (Vertical + Horizontal) con calibración de errores satelitales.
+
+---
+
+## 1. Ajuste de Resolución a la Rejilla de 20 Metros
+El primer paso del día consistió en reajustar la cuadrícula de interpolación de los datos InSAR. 
+* **El problema:** Inicialmente se usó una resolución de 11 metros, lo cual generaba demasiado "ruido" y artefactos matemáticos al forzar una resolución superior a la capacidad real del satélite.
+* **La solución:** Se recalculó el cruce de las órbitas Ascendente y Descendente redondeando las coordenadas a pasos de **20 metros** (aprox. `0.00018` grados en latitud y `0.00020` en longitud). Esto coincide de forma mucho más precisa con la resolución espacial azimutal nativa del radar Sentinel-1, obteniendo una nube de puntos más robusta y fiable.
+
+---
+
+## 2. Dinámicas Geomecánicas del Vertedero: Teoría Acoplada
+Antes de calcular los vectores horizontales, analizamos el comportamiento físico de una celda de vertido para poder interpretar correctamente los resultados. La deformación de un vertedero no es unidireccional, sino que obedece a un acoplamiento mecánico:
+
+1. **Subsidencia Vertical (El Motor):** Impulsada por la compactación de las cargas y, sobre todo, por la biodegradación de la materia orgánica (pérdida de masa al transformarse en gas y lixiviados).
+2. **Expansión Lateral o *Lateral Spreading* (La Consecuencia):** Al sufrir esta enorme presión vertical, la masa de residuos (que se comporta como un material elástico-plástico) busca liberar tensión desplazándose hacia los laterales (hacia los taludes del vaso).
+
+
+
+---
+
+## 3. Extracción de la Componente Horizontal (Este-Oeste)
+Utilizando la geometría de visión lateral (Side-looking) del radar y trigonometría básica, se resolvió el sistema de ecuaciones para combinar la *Mean Velocity* de la órbita Ascendente y Descendente. 
+
+
+
+* **Limitación del satélite:** Debido a la órbita cuasi-polar del Sentinel-1, el sistema es prácticamente "ciego" a los movimientos Norte-Sur. Por lo tanto, el cálculo se limitó a obtener un vector 2D preciso: la velocidad **Vertical (Up-Down)** y la velocidad **Horizontal (East-West)**.
+
+---
+
+## 4. Identificación y Corrección del Sesgo de Referencia (Detrending)
+Al obtener los primeros resultados horizontales, se detectó una anomalía: *toda la isla* parecía desplazarse uniformemente hacia el Oeste a unos **-8 mm/año**. 
+
+* **Diagnóstico:** Se identificó este fenómeno como un **Sesgo del Punto de Referencia (Reference Point Bias)**. En la técnica InSAR, el movimiento es relativo a un píxel considerado "estable". Si dicho punto sufre dinámicas regionales (como deslizamientos de ladera a gran escala o hundimiento por el peso de la isla), transfiere ese error al resto del mapa.
+* **Calibración:** Se aplicó una técnica de *Detrending*. Filtramos las zonas verdaderamente estables (donde el hundimiento vertical era casi nulo, entre -2 y +2 mm/año), calculamos su velocidad horizontal promedio (el error de *offset*) y se lo restamos a todo el mapa. Esto permitió centrar los valores reales y aislar el movimiento puramente local del vertedero.
+
+---
+
+## 5. Visualización Vectorial Avanzada
+Para finalizar, se generó un mapa de vectores para interpretar la deformación de forma intuitiva:
+* **Fondo:** Se mantuvo el mapa de hundimiento vertical (escala Rojo-Verde) con baja opacidad para dar contexto.
+* **Vectores (Flechas):** Se filtró el ruido para mostrar únicamente los desplazamientos críticos (superiores a **±10 mm/año**). Para evitar la saturación visual, se estandarizó la longitud de todas las flechas (indicando solo la dirección) y se aplicó una **escala de colores personalizada** (Violeta-Rosa para la expansión Oeste; Azul claro-oscuro para la expansión Este) para representar la magnitud de la fuerza.
+
+**Conclusión del Día:** El mapa vectorial calibrado confirma visualmente la hipótesis de *Lateral Spreading*. El Vaso 3 del Complejo Ambiental se está hundiendo a tasas de $\approx 100$ mm/año y, como consecuencia directa, la masa de residuos está "empujando" hacia los bordes Este y Oeste a velocidades de hasta **45 mm/año**, lo que supone un dato crítico para la monitorización de la estabilidad de los taludes y la integridad de las geomembranas.
+
+
