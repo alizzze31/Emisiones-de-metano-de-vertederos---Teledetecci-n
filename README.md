@@ -165,6 +165,23 @@ Para finalizar, se generó un mapa de vectores para interpretar la deformación 
 
 **Conclusión:** El mapa vectorial calibrado confirma visualmente la hipótesis de *Lateral Spreading*. El Vaso 3 del Complejo Ambiental se está hundiendo a tasas de $\approx 100$ mm/año y, como consecuencia directa, la masa de residuos está "empujando" hacia los bordes Este y Oeste a velocidades de hasta **45 mm/año**, lo que supone un dato crítico para la monitorización de la estabilidad de los taludes y la integridad de las geomembranas.
 
+## GrafCAN 
+Miré los mapas de **Ortofototos territoriales** de Tenerife, para ver la evolución de la zona. 
+
+- 1982 era solamente terreno, sin ninguna infraestructura
+- 1987 Se ve un edificio
+- 1994 Se ve algún edificio más y la celda de abajo como lisa
+- 1998 se ve ya la montaña hecha y escalones, pero solamente trabajaban la celda de abajo.
+- 2003 Se ve una balsa con líquido hacia el norte
+- 2004 sobre esta fecha yo creo que ya se quedó inactiva la de abajo
+- 2006 se ve que donde estaba la balsa, montaron otra celda y la expandieron. Ahora estaban la de abajo antigu ay arriba la nueva.
+- 2007 terminaron la montañita de la celda de arriba y empliaron una explanado, justo al lado, pero hacia el norte.
+- 2009 en esta explanada nueva, hicieron una montañita fina a la derecha, que fue creciendo hasta 2012
+- 2012 la montañita fin se unió con la montaña q había abajo de la explanada
+- 2012-2023 Han seguido dejando vertidos en la zona izquierda de la explanada, creciendo la montaña.
+
+- Como esa parte sigue activa, en los datos de EGMS no salen puntos de datos, ya que al haber cambios mecanicos o cambios bruscos debidos a otras cosas, no se puede medir un desplazamiento del suelo.
+
 ## Vertedero de Arico
 
 **Video youtube:** https://youtu.be/VVbs-vHz2TE?si=iV-cJlGfwMXimLui
