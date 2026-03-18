@@ -37,6 +37,8 @@ También es importante hablar de los niveles. Estos indican como de procesado es
 - **Nivel 2 (L2)**: Es el dato geofísico. Un software analiza la luz de L1 y calcula la cantidad de moléculas que hay de un gas específicio. Caso TROPOMI L2 CH_4, nos da directamente la concentración de metano en partes por mil millones (ppb) para cada pixel de mi AOI. Esto es loq ue descargaremos y analizaremos en python (?).
 - **Nivel 3 (L3)**: Dato mapeado y promediado. L2 son tiras de datos que tomó ese día el satlélite. L3 coge los datos de varios días y se oclocan en un mapa limpio. Se pueden perder fugas de metano.
 
+# Día 2
+
 ## Monitoreo de Movimiento del Suelo (EGMS)
 
 El **European Ground Motion Service (EGMS)** es un servicio de Copernicus que mide cuánto cambia la altitud el suelo con precisión milimétrica.
@@ -118,7 +120,7 @@ Los datos resultantes se exportaron y se mapearon utilizando una paleta de color
 
 Lo primero q voy a descargar es: ascendente: l2b 060 2019-2023 y descendente l2b096 2019-2023
 
-# Día 4: Refinamiento de Resolución y Análisis Vectorial Horizontal (InSAR)
+# Día 3: Refinamiento de Resolución y Análisis Vectorial Horizontal (InSAR)
 
 En esta jornada, el análisis de la deformación del Complejo Ambiental de Arico ha dado un salto cualitativo. Hemos pasado de una visualización unidimensional (hundimiento) a un estudio bidimensional (Vertical + Horizontal) con calibración de errores satelitales.
 
