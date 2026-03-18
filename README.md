@@ -67,3 +67,6 @@ EMIT (Earth Surface Mineral Dust Source Investigation) es un instrumento de la N
 **Calibrated L2b descendent**: D11-096
 
 Lo primero q voy a descargar es: ascendente: l2b 060 2019-2023 y descendente l2b096 2019-2023
+
+En python hice un mix para sacar el desplazamiento vertical, y comparar los resultados con el desplazamiento vertical que vien een los datos Ortho l3, pero estos tinene menor resolución porque hacen un amedia con muchos datos obtenidos en una zona.
+
