@@ -66,7 +66,55 @@ EMIT (Earth Surface Mineral Dust Source Investigation) es un instrumento de la N
 **Calibrated L2b ascendente**: A08-162, A07-060
 **Calibrated L2b descendent**: D11-096
 
-Lo primero q voy a descargar es: ascendente: l2b 060 2019-2023 y descendente l2b096 2019-2023
-
 En python hice un mix para sacar el desplazamiento vertical, y comparar los resultados con el desplazamiento vertical que vien een los datos Ortho l3, pero estos tinene menor resolución porque hacen un amedia con muchos datos obtenidos en una zona.
+
+
+## Metodología de Procesamiento InSAR (EGMS) para el Complejo Ambiental de Arico
+
+### 1. Objetivo
+El objetivo de esta fase del proyecto es cuantificar la subsidencia (hundimiento del terreno) en el Complejo Ambiental de Tenerife (Arico) utilizando datos de radar de apertura sintética (InSAR) provenientes del European Ground Motion Service (EGMS). 
+
+Dado que los satélites Sentinel-1 miden el desplazamiento en una trayectoria diagonal (Línea de Visión o *Line of Sight* - LOS), es necesario combinar mediciones desde dos perspectivas orbitales distintas para obtener el movimiento vertical real del terreno.
+
+### 2. Adquisición y Preparación de Datos
+Se descargaron los productos de Nivel 2B (Calibrated) (calibrados respecto a un punto de referencia terrestre con gps) del EGMS para el periodo 2019-2023, que contienen la velocidad media anual y los ángulos de observación precisos para cada Punto de Medición (MP).
+* **Órbita Ascendente:** El satélite viaja de Sur a Norte, observando hacia el Este.
+* **Órbita Descendente:** El satélite viaja de Norte a Sur, observando hacia el Oeste.
+
+Para combinar ambos conjuntos de datos, se realizó un cruce espacial (*spatial merge*). Las coordenadas de latitud y longitud se redondearon a 4 cifras decimales (aproximadamente 11 metros de precisión en el ecuador), lo que permitió identificar qué puntos del terreno fueron observados de manera efectiva por ambas órbitas.
+
+### 3. Descomposición Geométrica 2D (Ecuaciones)
+El desplazamiento medido por el satélite en su Línea de Visión ($V_{LOS}$) es una proyección del vector de movimiento real en 3D (Vertical, Este-Oeste y Norte-Sur). Debido a la órbita casi polar del satélite Sentinel-1, la sensibilidad al movimiento Norte-Sur es mínima y se asume como cero en este cálculo bidimensional.
+
+La relación matemática entre la velocidad observada y los vectores de movimiento real se define por la matriz de proyección:
+
+$$\begin{pmatrix} V_{asc} \\ V_{desc} \end{pmatrix} = \begin{pmatrix} \cos(\theta_{asc}) & -\sin(\theta_{asc})\cos(\alpha_{asc}) \\ \cos(\theta_{desc}) & -\sin(\theta_{desc})\cos(\alpha_{desc}) \end{pmatrix} \begin{pmatrix} V_U \\ V_E \end{pmatrix}$$
+
+Donde:
+* $V_{asc}$ y $V_{desc}$ son las velocidades medias medidas en el LOS (mm/año).
+* $\theta$ es el ángulo de incidencia (`incidence_angle`).
+* $\alpha$ es el ángulo de azimut de la órbita (`track_angle`).
+* $V_U$ es la velocidad de desplazamiento Vertical.
+* $V_E$ es la velocidad de desplazamiento Este-Oeste.
+
+Para resolver este sistema de ecuaciones y despejar las incógnitas ($V_U$ y $V_E$) de los cientos de miles de puntos de manera computacionalmente eficiente, definimos las constantes trigonométricas:
+* $A = \cos(\theta)$
+* $B = -\sin(\theta)\cos(\alpha)$
+
+Aplicando la regla de Cramer para resolver el sistema lineal de $2 \times 2$, el cálculo directo aplicado en el código de Python es:
+
+**Cálculo de la Velocidad Vertical ($V_U$):**
+$$V_U = \frac{V_{asc} B_{desc} - V_{desc} B_{asc}}{A_{asc} B_{desc} - A_{desc} B_{asc}}$$
+
+**Cálculo de la Velocidad Este-Oeste ($V_E$):**
+$$V_E = \frac{A_{asc} V_{desc} - A_{desc} V_{asc}}{A_{asc} B_{desc} - A_{desc} B_{asc}}$$
+
+*(Nota: Un valor negativo en $V_U$ indica subsidencia o hundimiento del terreno).*
+
+### 4. Resultados y Visualización
+Tras procesar más de 800.000 puntos cruzados, se identificó que el terreno natural circundante presenta una gran estabilidad (media cercana a -1.1 mm/año). Sin embargo, al centrar el área de estudio en las coordenadas del vertedero, se aislaron puntos con una subsidencia extrema, alcanzando valores de hasta **-102.9 mm/año**. 
+
+Los datos resultantes se exportaron y se mapearon utilizando una paleta de colores divergente (Rojo para hundimiento, Verde para estabilidad), revelando de forma nítida la huella de compactación de las celdas de residuos sólidos en el Complejo Ambiental de Arico.
+
+Lo primero q voy a descargar es: ascendente: l2b 060 2019-2023 y descendente l2b096 2019-2023
 
