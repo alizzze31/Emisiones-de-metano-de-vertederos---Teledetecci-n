@@ -123,15 +123,15 @@ Lo primero q voy a descargar es: ascendente: l2b 060 2019-2023 y descendente l2b
 En esta jornada, el análisis de la deformación del Complejo Ambiental de Arico ha dado un salto cualitativo. Hemos pasado de una visualización unidimensional (hundimiento) a un estudio bidimensional (Vertical + Horizontal) con calibración de errores satelitales.
 
 ---
-
-## 1. Ajuste de Resolución a la Rejilla de 20 Metros
+## Python
+### 1. Ajuste de Resolución a la Rejilla de 20 Metros
 El primer paso del día consistió en reajustar la cuadrícula de interpolación de los datos InSAR. 
 * **El problema:** Inicialmente se usó una resolución de 11 metros, lo cual generaba demasiado "ruido" y artefactos matemáticos al forzar una resolución superior a la capacidad real del satélite.
 * **La solución:** Se recalculó el cruce de las órbitas Ascendente y Descendente redondeando las coordenadas a pasos de **20 metros** (aprox. `0.00018` grados en latitud y `0.00020` en longitud). Esto coincide de forma mucho más precisa con la resolución espacial azimutal nativa del radar Sentinel-1, obteniendo una nube de puntos más robusta y fiable.
 
 ---
 
-## 2. Dinámicas Geomecánicas del Vertedero: Teoría Acoplada
+### 2. Dinámicas Geomecánicas del Vertedero: Teoría Acoplada
 Antes de calcular los vectores horizontales, analizamos el comportamiento físico de una celda de vertido para poder interpretar correctamente los resultados. La deformación de un vertedero no es unidireccional, sino que obedece a un acoplamiento mecánico:
 
 1. **Subsidencia Vertical (El Motor):** Impulsada por la compactación de las cargas y, sobre todo, por la biodegradación de la materia orgánica (pérdida de masa al transformarse en gas y lixiviados).
@@ -141,7 +141,7 @@ Antes de calcular los vectores horizontales, analizamos el comportamiento físic
 
 ---
 
-## 3. Extracción de la Componente Horizontal (Este-Oeste)
+### 3. Extracción de la Componente Horizontal (Este-Oeste)
 Utilizando la geometría de visión lateral (Side-looking) del radar y trigonometría básica, se resolvió el sistema de ecuaciones para combinar la *Mean Velocity* de la órbita Ascendente y Descendente. 
 
 
@@ -150,7 +150,7 @@ Utilizando la geometría de visión lateral (Side-looking) del radar y trigonome
 
 ---
 
-## 4. Identificación y Corrección del Sesgo de Referencia (Detrending)
+### 4. Identificación y Corrección del Sesgo de Referencia (Detrending)
 Al obtener los primeros resultados horizontales, se detectó una anomalía: *toda la isla* parecía desplazarse uniformemente hacia el Oeste a unos **-8 mm/año**. 
 
 * **Diagnóstico:** Se identificó este fenómeno como un **Sesgo del Punto de Referencia (Reference Point Bias)**. En la técnica InSAR, el movimiento es relativo a un píxel considerado "estable". Si dicho punto sufre dinámicas regionales (como deslizamientos de ladera a gran escala o hundimiento por el peso de la isla), transfiere ese error al resto del mapa.
@@ -158,11 +158,19 @@ Al obtener los primeros resultados horizontales, se detectó una anomalía: *tod
 
 ---
 
-## 5. Visualización Vectorial Avanzada
+### 5. Visualización Vectorial Avanzada
 Para finalizar, se generó un mapa de vectores para interpretar la deformación de forma intuitiva:
 * **Fondo:** Se mantuvo el mapa de hundimiento vertical (escala Rojo-Verde) con baja opacidad para dar contexto.
 * **Vectores (Flechas):** Se filtró el ruido para mostrar únicamente los desplazamientos críticos (superiores a **±10 mm/año**). Para evitar la saturación visual, se estandarizó la longitud de todas las flechas (indicando solo la dirección) y se aplicó una **escala de colores personalizada** (Violeta-Rosa para la expansión Oeste; Azul claro-oscuro para la expansión Este) para representar la magnitud de la fuerza.
 
-**Conclusión del Día:** El mapa vectorial calibrado confirma visualmente la hipótesis de *Lateral Spreading*. El Vaso 3 del Complejo Ambiental se está hundiendo a tasas de $\approx 100$ mm/año y, como consecuencia directa, la masa de residuos está "empujando" hacia los bordes Este y Oeste a velocidades de hasta **45 mm/año**, lo que supone un dato crítico para la monitorización de la estabilidad de los taludes y la integridad de las geomembranas.
+**Conclusión:** El mapa vectorial calibrado confirma visualmente la hipótesis de *Lateral Spreading*. El Vaso 3 del Complejo Ambiental se está hundiendo a tasas de $\approx 100$ mm/año y, como consecuencia directa, la masa de residuos está "empujando" hacia los bordes Este y Oeste a velocidades de hasta **45 mm/año**, lo que supone un dato crítico para la monitorización de la estabilidad de los taludes y la integridad de las geomembranas.
+
+## Vertedero de Arico
+
+**Video youtube:** https://youtu.be/VVbs-vHz2TE?si=iV-cJlGfwMXimLui
+
+El vertedero de Arico se fundó en 1985. Al principio contaba con 1 millón $m^2$, hace cuatro años, medía ya 2.2 millones $m^2$. Depositan los deshechos que no reciclan, y los van tapando, hasta que llega a una altura límite. Al descomponerse, emiten biogás (Dioxido de Carbono y Metano) que recogen con unos tubos para llevarlo a una planta y convertir el gas en energía. ¿Qué pasa? Que puede haber fugas, puede empezar a descomponerse en el proceso de transportación, depositación y tapación, y además, teniendo en cuenta que el suelo se esta hundiendo, eso fuede provocar ranuras en las telas que lo tapan y huecos en la tierra, por donde salga gas metano. Estas fugas no controladas de emisión de metano, son las que vamos a intentar medir y buscar una correlación con el hundimiendo de las celdas. 
+
+
 
 
