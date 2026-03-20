@@ -191,5 +191,11 @@ Miré los mapas de **Ortofototos territoriales** de Tenerife, para ver la evoluc
 El vertedero de Arico se fundó en 1985. Al principio contaba con 1 millón $m^2$, hace cuatro años, medía ya 2.2 millones $m^2$. Depositan los deshechos que no reciclan, y los van tapando, hasta que llega a una altura límite. Al descomponerse, emiten biogás (Dioxido de Carbono y Metano) que recogen con unos tubos para llevarlo a una planta y convertir el gas en energía. ¿Qué pasa? Que puede haber fugas, puede empezar a descomponerse en el proceso de transportación, depositación y tapación, y además, teniendo en cuenta que el suelo se esta hundiendo, eso fuede provocar ranuras en las telas que lo tapan y huecos en la tierra, por donde salga gas metano. Estas fugas no controladas de emisión de metano, son las que vamos a intentar medir y buscar una correlación con el hundimiendo de las celdas. 
 
 
+# Dia 4
+
+Intentar descargar los archivos de años anteriores 2016..., pero no lo encontré disponible. Pensar por que puede ser posible qu etodo se desplace hacia un lado. descargar datos ortho desplazamiento horizontal. Comparar los resultados con el ortho y el obtenido anteriormente.
+
+# Día 5
+Hoy no busqué más información, simplemente estuve con python mejorando el código que tenía y dejandolo limpio para poder uar las gráficas y los resultados para la memoría y lso documentos futuros. 
 
 
