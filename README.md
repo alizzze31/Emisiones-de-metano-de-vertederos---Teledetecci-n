@@ -193,9 +193,51 @@ El vertedero de Arico se fundó en 1985. Al principio contaba con 1 millón $m^2
 
 # Dia 4
 
-Intentar descargar los archivos de años anteriores 2016..., pero no lo encontré disponible. Pensar por que puede ser posible qu etodo se desplace hacia un lado. descargar datos ortho desplazamiento horizontal. Comparar los resultados con el ortho y el obtenido anteriormente.
-
+Intentar descargar los archivos de años anteriores 2016..., pero no lo encontré disponible. Pensar por que puede ser posible qu etodo se desplace hacia un lado. descargar datos ortho desplazamiento horizontal. Comparar los resultados con el ortho y el obtenido anteriormente. 
 # Día 5
-Hoy no busqué más información, simplemente estuve con python mejorando el código que tenía y dejandolo limpio para poder uar las gráficas y los resultados para la memoría y lso documentos futuros. 
+Hoy no busqué más información, simplemente estuve con python mejorando el código que tenía y dejandolo limpio para poder usar las gráficas y los resultados para la memoria y los documentos futuros. Con esto queda listo las tareas de esta semana.
 
 
+# Día 6
+
+# Día 7 
+
+# Uso de Oversampling para Datos TROPOMI
+
+Se han procesado datos del producto **TROPOMI L2 de metano (CH₄)** correspondientes a marzo de 2024 sobre el área de interés centrada en el Complejo Ambiental de Arico (Tenerife). Tras la descarga desde el repositorio del Planetary Computer, se aplicó un filtrado de calidad utilizando el parámetro `qa_value` (≥ 0.3) junto con un recorte espacial sobre la zona de estudio.
+
+## Resolución y Oversampling
+
+La resolución nativa del sensor **TROPOMI** es de aproximadamente **7 × 7 km por píxel**, lo cual limita el análisis de fuentes puntuales. Para mejorar la representatividad espacial se aplicó una técnica de **oversampling**:
+
+1. Se definió una **malla regular** de `GRID_RES = 0.01` (~1 km).  
+2. Cada píxel de TROPOMI, que se superpone parcialmente con otros, se proyectó sobre las celdas de esta malla.  
+3. Para cada celda se calculó el promedio de todos los píxeles que caen en ella:
+
+$$
+\text{CH}_4^{\text{celda}} = \frac{1}{N} \sum_{i=1}^{N} \text{CH}_4^i
+$$
+
+donde $N$ es el número de observaciones dentro de la celda y $\text{CH}_4^i$ el valor de cada píxel original.
+
+### Beneficios del oversampling
+
+- Reduce el **ruido aleatorio** de las mediciones.  
+- Mejora la **cobertura espacial** y suaviza el mapa de concentraciones.  
+- Permite obtener un **mapa más interpretable** para detectar patrones regionales.
+
+## Consideraciones importantes
+
+- La **resolución efectiva real** sigue siendo ~7 km; el grid de 1 km no aumenta la resolución instrumental.  
+- El oversampling **no genera información nueva**, solo redistribuye y promedia los datos existentes.  
+- Oversampling **≠ interpolación**: no se inventan valores, se usan datos reales.
+
+**Forma correcta de describirlo:**
+
+> “Se aplicó oversampling sobre una malla de ~1 km para mejorar la representación espacial de los datos TROPOMI (resolución nativa ~7 km), sin aumentar la resolución real del sensor.”
+
+## Aplicación y uso
+
+El oversampling permite combinar múltiples pasadas, reducir huecos y mejorar la interpretabilidad de mapas de CH₄. Aunque se use un grid de 1 km, fuentes muy pequeñas (como vertederos o plumas finas) **no pueden detectarse** sin sensores de mayor resolución, como **EMIT (~60 m)** o **GHGSat (~25 m)**.  
+
+Este enfoque es estándar en estudios con TROPOMI y sirve como base para análisis posteriores de anomalías o estimación de flujos de emisión.
