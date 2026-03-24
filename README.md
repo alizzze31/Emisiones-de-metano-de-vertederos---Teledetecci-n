@@ -198,17 +198,27 @@ Intentar descargar los archivos de años anteriores 2016..., pero no lo encontr�
 Hoy no busqué más información, simplemente estuve con python mejorando el código que tenía y dejandolo limpio para poder usar las gráficas y los resultados para la memoria y los documentos futuros. Con esto queda listo las tareas de esta semana.
 
 
-# Día 6
+# Día 6: Optimización de Datos y Superación del "Sesgo Costero" en Tenerife
+
+En esta jornada, hemos estado investigando como funciona el Microsoft Planetary Computer. Aunque no he conseguido ver una forma de programar desde dentro, al final he visto que la forma más cómoda era usar Google Colaboratory, ya que hay una carpeta en la que puedo ir descargando cosas, tomo la información que necesito y luego la elimino. Primero me aseguré de que mi programa podía conectarse a la red de Planetary Computer, haciendo que me dijera cuantas pasadas había hecho el sentinel 5p en un mes. Normalmente hace 35 al mes. Primero busqué los pixeles que había disponibles con un $qa_value$>0.5 y solo me salían en el océano, no me salía ninguno encima de la isla. Probé con $qa_value>0.3$ y salían más puntos pero en la isla un par. Esto puede deberse a:
+
+* **Efecto Costa:** El mar absorbe el infrarrojo, reduciendo la confianza del sensor.
+* **Relieve Volcánico:** El desnivel del Teide genera sombras y variaciones de presión que el algoritmo marca como "no fiables".
+
+Inicialmente busqué hacer mapas de calor continuos, pero con la baja ensidad de puntos no tenía mucho sentido, así que lo dejé en un mapa de puntos
+
+
+
+
 
 # Día 7 
 
-# Uso de Oversampling para Datos TROPOMI
+## Uso de Oversampling para Datos TROPOMI
 
 Se han procesado datos del producto **TROPOMI L2 de metano (CH₄)** correspondientes a marzo de 2024 sobre el área de interés centrada en el Complejo Ambiental de Arico (Tenerife). Tras la descarga desde el repositorio del Planetary Computer, se aplicó un filtrado de calidad utilizando el parámetro `qa_value` (≥ 0.3) junto con un recorte espacial sobre la zona de estudio.
 
-## Resolución y Oversampling
 
-La resolución nativa del sensor **TROPOMI** es de aproximadamente **7 × 7 km por píxel**, lo cual limita el análisis de fuentes puntuales. Para mejorar la representatividad espacial se aplicó una técnica de **oversampling**:
+La **resolución** nativa del sensor **TROPOMI** es de aproximadamente **7 × 7 km por píxel**, lo cual limita el análisis de fuentes puntuales. Para mejorar la representatividad espacial se aplicó una técnica de **oversampling**:
 
 1. Se definió una **malla regular** de `GRID_RES = 0.01` (~1 km).  
 2. Cada píxel de TROPOMI, que se superpone parcialmente con otros, se proyectó sobre las celdas de esta malla.  
@@ -220,14 +230,11 @@ $$
 
 donde $N$ es el número de observaciones dentro de la celda y $\text{CH}_4^i$ el valor de cada píxel original.
 
-### Beneficios del oversampling
+### El oversampling:
 
 - Reduce el **ruido aleatorio** de las mediciones.  
 - Mejora la **cobertura espacial** y suaviza el mapa de concentraciones.  
 - Permite obtener un **mapa más interpretable** para detectar patrones regionales.
-
-## Consideraciones importantes
-
 - La **resolución efectiva real** sigue siendo ~7 km; el grid de 1 km no aumenta la resolución instrumental.  
 - El oversampling **no genera información nueva**, solo redistribuye y promedia los datos existentes.  
 - Oversampling **≠ interpolación**: no se inventan valores, se usan datos reales.
@@ -235,8 +242,6 @@ donde $N$ es el número de observaciones dentro de la celda y $\text{CH}_4^i$ el
 **Forma correcta de describirlo:**
 
 > “Se aplicó oversampling sobre una malla de ~1 km para mejorar la representación espacial de los datos TROPOMI (resolución nativa ~7 km), sin aumentar la resolución real del sensor.”
-
-## Aplicación y uso
 
 El oversampling permite combinar múltiples pasadas, reducir huecos y mejorar la interpretabilidad de mapas de CH₄. Aunque se use un grid de 1 km, fuentes muy pequeñas (como vertederos o plumas finas) **no pueden detectarse** sin sensores de mayor resolución, como **EMIT (~60 m)** o **GHGSat (~25 m)**.  
 
