@@ -239,10 +239,5 @@ donde $N$ es el número de observaciones dentro de la celda y $\text{CH}_4^i$ el
 - El oversampling **no genera información nueva**, solo redistribuye y promedia los datos existentes.  
 - Oversampling **≠ interpolación**: no se inventan valores, se usan datos reales.
 
-**Forma correcta de describirlo:**
-
-> “Se aplicó oversampling sobre una malla de ~1 km para mejorar la representación espacial de los datos TROPOMI (resolución nativa ~7 km), sin aumentar la resolución real del sensor.”
-
-El oversampling permite combinar múltiples pasadas, reducir huecos y mejorar la interpretabilidad de mapas de CH₄. Aunque se use un grid de 1 km, fuentes muy pequeñas (como vertederos o plumas finas) **no pueden detectarse** sin sensores de mayor resolución, como **EMIT (~60 m)** o **GHGSat (~25 m)**.  
-
+Aunque se use un grid de 1 km, fuentes muy pequeñas (como vertederos o plumas finas) **no pueden detectarse** sin sensores de mayor resolución, como **EMIT (~60 m)** o **GHGSat (~25 m)**.  
 Este enfoque es estándar en estudios con TROPOMI y sirve como base para análisis posteriores de anomalías o estimación de flujos de emisión.
