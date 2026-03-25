@@ -63,6 +63,7 @@ EMIT (Earth Surface Mineral Dust Source Investigation) es un instrumento de la N
 - **Producto L2B Plume Complexes:** Archivos que muestran la concentración de metano por encima del nivel de fondo, permitiendo visualizar la forma y dirección de la pluma de gas.
 - **Uso en el proyecto:** Se utilizará para validar si las detecciones de TROPOMI provienen de focos específicos dentro del vertedero.
 
+## EMGS
 
 ¿Qué capas tomamos de EMGS?
 **Calibrated L2b ascendente**: A08-162, A07-060
