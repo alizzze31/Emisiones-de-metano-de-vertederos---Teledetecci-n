@@ -20,7 +20,8 @@ Lectura de documentación:
 
 ## TROPOMI (Medición gases atmósfera)
 
--**TROPOMI**: TROPOspheric monitoring instrument, es el instrumento (sensor o cámara) que va a borde del sentinel-5p de la ESA. Es un espectrómetro que mide gases en la atmósfera (por ejemplo el métano). Tiene una alta resolución, por eso nos permitirá detectar fuentes de emisión de vertederos. 
+-**TROPOMI**: TROPOspheric monitoring instrument, es un sensor espectrométrico a bordo del sentinel-5p de la ESA, mide gases de efecto invernadero en la atmósfera (por ejemplo el métano). 
+Su resolución espacial relativamente alta (~7 km × 7 km) permite detectar anomalías regionales de metano, aunque no plumas puntuales muy pequeñas.
 
 -**PUM**: Product User Manual, es el manual de instrucciones de los archivos que contienen la información. Nos indica que carpetas hay en el archivo, como filtrar datos malos (qa_value), nos indica en que unidades vien ele metano...
 
