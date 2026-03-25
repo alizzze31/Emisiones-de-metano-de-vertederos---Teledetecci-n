@@ -241,3 +241,23 @@ donde $N$ es el número de observaciones dentro de la celda y $\text{CH}_4^i$ el
 
 Aunque se use un grid de 1 km, fuentes muy pequeñas (como vertederos o plumas finas) **no pueden detectarse** sin sensores de mayor resolución, como **EMIT (~60 m)** o **GHGSat (~25 m)**.  
 Este enfoque es estándar en estudios con TROPOMI y sirve como base para análisis posteriores de anomalías o estimación de flujos de emisión.
+
+# Día 8 
+
+| Característica | TROPOMI (Sentinel-5P) | EMIT (NASA Methane Plume Imaging Spectrometer) |
+|----------------|-----------------------|-----------------------------------------------|
+| Tipo de sensor | Espectrómetro satelital de absorción atmosférica | Espectrómetro de imágenes de alta resolución |
+| Plataforma | Satélite Sentinel-5P | Satélite de la NASA (EMIT) |
+| Escala de observación | Regional / global | Local / puntual |
+| Resolución espacial | ~7 km × 7 km | ~60 m |
+| Cobertura temporal | Global diaria | Limitada a sobrevuelo específico / pluma |
+| Qué mide | Concentración de CH₄ en toda la columna atmosférica | Concentración de CH₄ integrada en la columna dentro de plumas |
+| Unidad | XCH₄ → partes por millón (ppm) | ppm·m (concentración integrada verticalmente) |
+| Datos de nivel | L2 (concentración, qa_value, kernels) | L2B (ppm·m, plumas, métricas) |
+| QA / Filtros | qa_value 0–1; filtra nubes, aerosoles, geometría, ajuste de modelo | QA incluido implícitamente en los productos L2B; depende de visibilidad de pluma y calidad espectral |
+| Qué permite ver | Variaciones regionales, anomalías de metano | Plumas puntuales, dirección, intensidad y masa de emisiones |
+| Limitaciones | No detecta fuentes pequeñas dentro del píxel | Cobertura limitada; depende de que la pluma sea detectable |
+| Uso en proyecto | Detección de anomalías y tendencias en Arico (2020–2025) | Cuantificación de emisiones puntuales mediante métricas de plumas |
+| Concepto visual | “Cámara panorámica global” | “Lupa sobre la pluma” |
+| Procesamiento típico | Filtros QA, máscara de nubes, oversampling (500–1000 m), promedios semanales/mensuales | Extracción de área de pluma, valor máximo, masa integrada, métricas por pluma |
+| Escala vertical | Toda la columna atmosférica | Columna completa pero enfocada solo dentro de la pluma detectada |
