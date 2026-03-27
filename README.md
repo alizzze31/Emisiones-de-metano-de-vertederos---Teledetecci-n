@@ -264,16 +264,15 @@ Este enfoque es estándar en estudios con TROPOMI y sirve como base para anális
 | Procesamiento típico | Filtros QA, máscara de nubes, oversampling (500–1000 m), promedios semanales/mensuales | Extracción de área de pluma, valor máximo, masa integrada, métricas por pluma |
 | Escala vertical | Toda la columna atmosférica | Columna completa pero enfocada solo dentro de la pluma detectada |
 
+# Día 9
 ## Presentación
 
-Voy a escribri aqui el guión:
+Voy a escribir aqui alguna idea para el guión:
 
 - **Introdución**: Entre los gases de efecto invernadero encontramos varios compuestos como dióxido de carbono, óxido nitroso y metano.
 El metano (CH₄) es especialmente potente, ya que tenemos poca cantidad en la atmosfera, por ello cualquier cambio afecta mucho y sus emisiones pueden incrementarse por diversas fuentes, como el ganado, la industria o los vertederos de residuos sólidos.
 En estos vertederos se depositan residuos orgánicos que, al descomponerse, producen metano.
 Aunque parte de este gas se recoge mediante sistemas de extracción, pueden producirse emisiones no controladas hacia la atmósfera.
-
-
 
 
 
@@ -283,3 +282,8 @@ En este caso, nos interesa la subsidencia del vertedero, ya que está relacionad
 
 - **Datos memiisones metano**: Para detectar y analizar emisiones de metano se utilizan datos satelitales.
 En este trabajo se combinan dos sensores: TROPOMI, que permite observar el metano a escala regional, y EMIT, que permite detectar emisiones puntuales con mayor detalle.
+
+
+# Día 10 
+
+Presentación
