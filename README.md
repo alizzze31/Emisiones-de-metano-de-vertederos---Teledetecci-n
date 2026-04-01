@@ -287,3 +287,13 @@ En este trabajo se combinan dos sensores: TROPOMI, que permite observar el metan
 # Día 10 
 
 Presentación
+
+
+# Día extra semana santa (miercoles 01/04)
+
+Investigar sobre los datos EMIT, y visualizar plumas de emiisones de metano. https://earth.gov/ghgcenter/data-tools/view/emit-plume-viewer
+En canarias no se ha detectado ninguna en el visualizador, ya que seguramente las emisiones sean inferiores. Pero no se si habrá alguna forma de tomar los datos que hayan medido para nosotros cuantificar el metano en esa zona, porque el sensor si que tiene frecuentes medidas por encima de Tenerife.
+
+Viendo las plumas de metano en la península, la primera que he observado ha sido la de Murcia, ya que como he vivido allí me ha llamado la atención. Viendo el maps, veo que las emisiones correspondían a la planta de reciclaje de Murcia, al lado de Cañada hermosa.
+
+Solamente hay 3 plumas en toda la península. Otra en Alcázar de San Juan, aunque aquí no he visto ninguna infraesytructura cerca, lo único que está cerca del canal de agua de la depuradora.
