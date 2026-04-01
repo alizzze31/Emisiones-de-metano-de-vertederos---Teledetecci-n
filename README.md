@@ -296,4 +296,6 @@ En canarias no se ha detectado ninguna en el visualizador, ya que seguramente la
 
 Viendo las plumas de metano en la península, la primera que he observado ha sido la de Murcia, ya que como he vivido allí me ha llamado la atención. Viendo el maps, veo que las emisiones correspondían a la planta de reciclaje de Murcia, al lado de Cañada hermosa.
 
-Solamente hay 3 plumas en toda la península. Otra en Alcázar de San Juan, aunque aquí no he visto ninguna infraesytructura cerca, lo único que está cerca del canal de agua de la depuradora.
+Solamente hay 3 plumas en toda la península. Otra en Alcázar de San Juan, aunque aquí no he visto ninguna infraestructura cerca, lo único que está cerca del canal de agua de la depuradora.
+
+Por último, hay una gran pluma de metano detectada en Pinto,  Madrid, que coincide con la ubicación de la Planta de Biometanización y Compostaje de Pinto.
