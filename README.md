@@ -283,3 +283,6 @@ En este caso, nos interesa la subsidencia del vertedero, ya que está relacionad
 
 - **Datos memiisones metano**: Para detectar y analizar emisiones de metano se utilizan datos satelitales.
 En este trabajo se combinan dos sensores: TROPOMI, que permite observar el metano a escala regional, y EMIT, que permite detectar emisiones puntuales con mayor detalle.
+
+
+
