@@ -287,3 +287,66 @@ En este trabajo se combinan dos sensores: TROPOMI, que permite observar el metan
 # Día 10 
 
 Presentación
+
+
+# Día extra semana santa (miercoles 01/04)
+
+Investigar sobre los datos EMIT, y visualizar plumas de emiisones de metano. https://earth.gov/ghgcenter/data-tools/view/emit-plume-viewer
+En canarias no se ha detectado ninguna en el visualizador, ya que seguramente las emisiones sean inferiores. Pero no se si habrá alguna forma de tomar los datos que hayan medido para nosotros cuantificar el metano en esa zona, porque el sensor si que tiene frecuentes medidas por encima de Tenerife.
+
+Viendo las plumas de metano en la península, la primera que he observado ha sido la de Murcia, ya que como he vivido allí me ha llamado la atención. Viendo el maps, veo que las emisiones correspondían a la planta de reciclaje de Murcia, al lado de Cañada hermosa.
+
+Solamente hay 3 plumas en toda la península. Otra en Alcázar de San Juan, aunque aquí no he visto ninguna infraestructura cerca, lo único que está cerca del canal de agua de la depuradora.
+
+Por último, hay una gran pluma de metano detectada en Pinto,  Madrid, que coincide con la ubicación de la Planta de Biometanización y Compostaje de Pinto.
+
+# Día 11 (IME)
+Leer:
+## "Quantifying methane point sources from fine-scale satellite observations of atmospheric methane plumes" Daniel J. Varon et al. 2018.
+https://amt.copernicus.org/articles/11/5673/2018/
+En el artículo leemos que se usan distintos algoritmos para cuantificar las emisiones d emetano a partir de columnas de 10x10km2 a 50x50km2.
+
+IME: Integrated Mass Enhancement
+**Viento mayor a 10m/s**:
+- Detección: Si el viento es mayor de 10m/s el metano se diluye muy rápido y no podemos detectarlo bien.
+- Medición: Si consiguieramos detectarlo, la medición es más estable en este caso.
+
+**Viento menor a 2-3m/s**:
+- Detección: El metano se acumula y se ve una mancha perfecta.
+- Cuantificación: Pésima, el método IME asume que el viento se lleva el gas de forma constante, y al no haber viento, no se calcula bien.
+
+### Métodos para detectar emisiones de metano.
+
+- Inversión de pluma gaussiana
+- Método del pixel de la fuente
+- Flujo de sección transversal
+- Método IME: Relaciona la masa total de l apluma con la tasa de emisión. Es ideal para sensores de columna.
+ 
+ **Formulilla**: El satélite nos da el dato en ppb(X). Para el flujo necesito la masa ($\Delta\Omega$).
+
+ $\Delta\Omega = \Delta X \cdot \frac{M_{CH4}}{M{air}} \cdot \Omega_a$
+
+  $\Delta\Omega$: exceso metano en masa en la columna $[kg/m^2]$
+  $\Delta X$: Exceso observado sobre el fondo (ppb)
+  $\frac{M_{CH4}}{M{air}}$: relción masas molares $\left(\frac{16.04}{28.96}\right)$
+  $\Omega_a$: masa de la columna de aire seco.
+
+  ### Método IME
+
+  El IME de una pluma de columna observada, que consta de N pixeles de Área $A_j$ (j=1,...,N)
+
+  $IME =\sum^N_{j=1}\Delta\Omega_j \cdot A_j$
+
+  La relación entr eel IME (masa que vemos) y Q (lo que emite el vertedero), se define por el tiempo de residencia $\tau$ del metano.
+
+  $Q=\frac{IME}{\tau}$
+
+  $\tau=\frac{L}{U_{eff}}$
+
+  L: tamaño pluma[m]
+  Ueff: velocidad del viento [m/s]
+  
+ 
+
+
+
