@@ -324,7 +324,28 @@ IME: Integrated Mass Enhancement
  
  **Formulilla**: El satélite nos da el dato en ppb(X). Para el flujo necesito la masa ($\Delta\Omega$).
 
- $\Delta\Omega = \Delta X \cdot frac{M_{CH4}}{M{air}} \cdot \Omega_a$
+ $\Delta\Omega = \Delta X \cdot \frac{M_{CH4}}{M{air}} \cdot \Omega_a$
+
+  $\Delta\Omega$: exceso metano en masa en la columna $[kg/m^2]$
+  $\Delta X$: Exceso observado sobre el fondo (ppb)
+  $\frac{M_{CH4}}{M{air}}$: relción masas molares $\left(\frac{16.04}{28.96}\right)$
+  $\Omega_a$: masa de la columna de aire seco.
+
+  ### Método IME
+
+  El IME de una pluma de columna observada, que consta de N pixeles de Área $A_j$ (j=1,...,N)
+
+  $IME =\sum^N_{j=1}\Delta\Omega_j \cdot A_j$
+
+  La relación entr eel IME (masa que vemos) y Q (lo que emite el vertedero), se define por el tiempo de residencia $\tau$ del metano.
+
+  $Q=\frac{IME}{\tau}$
+
+  $\tau=\frac{L}{U_{eff}}$
+
+  L: tamaño pluma[m]
+  Ueff: velocidad del viento [m/s]
+  
  
 
 
