@@ -6,15 +6,15 @@ Proyecto ULL/IPNA-CSIC enfocado en comparar la evolución de las emisiones de me
 He localizado el Complejo Ambiental de Tenerife (CAT-Arico) y estas son las coordenadas que he obtenido:
 
 - **Latitud:** [28.11769]
-- **Longitud:** [16.48005]
+- **Longitud:** [-16.48005]
 - **Ubicación:** Arico, Tenerife.
 
 Para tomar el área de aproximadamente un radio de 10-30 km al rededor de nuestras coordenadas, vamos a tomar un cuadrado sumandole y restandole 22 km en la la latitud y en la longitud. Teniendo en cuenta que 0.1º son unos 11km, si le sumamos y restamos 0.2º, obtenemos un cuadrado de 44km de alto y 44km de ancho. Por lo que, tendremos:
 
 - **Latitud Norte (Lat + 0.2º)**: [28.31769]
 - **Latitud Sur (Lat - 0.2º)**: [27.91769]
-- **Longitud Este (Long + 0.2º)**: [16.68005]
-- **Longitud Oeste (Long - 0.2º)**: [16.28005]
+- **Longitud Este (Long + 0.2º)**: [-16.28005]
+- **Longitud Oeste (Long - 0.2º)**: [-16.68005]
 
 Lectura de documentación:
 
@@ -299,3 +299,33 @@ Viendo las plumas de metano en la península, la primera que he observado ha sid
 Solamente hay 3 plumas en toda la península. Otra en Alcázar de San Juan, aunque aquí no he visto ninguna infraestructura cerca, lo único que está cerca del canal de agua de la depuradora.
 
 Por último, hay una gran pluma de metano detectada en Pinto,  Madrid, que coincide con la ubicación de la Planta de Biometanización y Compostaje de Pinto.
+
+# Día 11 (IME)
+Leer:
+## "Quantifying methane point sources from fine-scale satellite observations of atmospheric methane plumes" Daniel J. Varon et al. 2018.
+https://amt.copernicus.org/articles/11/5673/2018/
+En el artículo leemos que se usan distintos algoritmos para cuantificar las emisiones d emetano a partir de columnas de 10x10km2 a 50x50km2.
+
+IME: Integrated Mass Enhancement
+**Viento mayor a 10m/s**:
+- Detección: Si el viento es mayor de 10m/s el metano se diluye muy rápido y no podemos detectarlo bien.
+- Medición: Si consiguieramos detectarlo, la medición es más estable en este caso.
+
+**Viento menor a 2-3m/s**:
+- Detección: El metano se acumula y se ve una mancha perfecta.
+- Cuantificación: Pésima, el método IME asume que el viento se lleva el gas de forma constante, y al no haber viento, no se calcula bien.
+
+### Métodos para detectar emisiones de metano.
+
+- Inversión de pluma gaussiana
+- Método del pixel de la fuente
+- Flujo de sección transversal
+- Método IME: Relaciona la masa total de l apluma con la tasa de emisión. Es ideal para sensores de columna.
+ 
+ **Formulilla**: El satélite nos da el dato en ppb(X). Para el flujo necesito la masa ($\Delta\Omega$).
+
+ $\Delta\Omega = \Delta X \cdot frac{M_{CH4}}{M{air}} \cdot \Omega_a$
+ 
+
+
+
