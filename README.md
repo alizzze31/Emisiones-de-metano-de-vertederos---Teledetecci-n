@@ -396,7 +396,7 @@ Estos son los que nos interesan, siendo
 
   En cualquier caso, si quisieramos saber la dirección, podemos usar arctan(v/u).
 
-  Necesitamos saber a que hora se miden los datos de TROPOMI, para tomar el dato del viento a esa hora aproximada en ERA5. Teniendo en cuenta que tantpo TROPOMI como ERA5 nos dan los datos en horario UTC +0, viendo la hora a la que pasa TROPOMI al medir cada dato, hicimo sla prueba en Marzo 2024, 03/2024, y el horario en el que setomaron dichos datos variaba entre las 13:33 y las 14:49
+Necesitamos saber a que hora se miden los datos de TROPOMI, para tomar el dato del viento a esa hora aproximada en ERA5. Teniendo en cuenta que tantpo TROPOMI como ERA5 nos dan los datos en horario UTC +0, viendo la hora a la que pasa TROPOMI al medir cada dato, hicimo sla prueba en Marzo 2024, 03/2024, y el horario en el que setomaron dichos datos variaba entre las 13:33 y las 14:49
 
   
 
