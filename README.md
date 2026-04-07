@@ -344,7 +344,63 @@ IME: Integrated Mass Enhancement
   $\tau=\frac{L}{U_{eff}}$
 
   L: tamaño pluma[m]
+  
   Ueff: velocidad del viento [m/s]
+
+
+  # Día 12 
+
+  Seguimos con el mismo documento. 
+
+  **Apartado 5: Computing the source rate by the IME method**
+
+  Hay que tener muy en cuenta que pixeles vamos a seleccionar. No e slo mismo tomar pixeles con poco exceso d emetano, tomar con mucho...
+  
+  El procedimiento de selección es: Tomar pixeles donde el exceso de metano sea, por ejemplo, 2 o 3 veces mayor a la desviación estandar del ruido de fondo ($\sigma_{fondo}$).
+  
+  Contigüidad: pixeles conectados al foco emisor (vetedero)
+
+  El tamaño L mencionado previamente, lo definimos como:
+
+  $L=\sqrt{Área total de los N píxeles seleccionados}$
+
+
+### Datos ERA5
+  El siguiente paso es utilizar datos de ERA5 para obtener la velocidad del VIENTO. 
+  Datos ERA5: Estos datos son los que necesito para tener el viento correspondiente en el momento de la medida del TROPOMI.
+  Primero me registro en la página de Climate Data Store, de Copernicus.
+
+  ERA5 proporciona estimaciones por hora para diversas variables atmosféricas, de oleaje y de la superficie terrestre.
+  Nosotros usaremos la variable $U_{10}$, el viento a 10 metros de alura de la superficie.
+
+
+  (He querido probar el codigo de datos TROPOMI en el vertedero de Madrid [40.2606, -3.6406], y le veo más sentido que en Tenerife, que no sale ni un punto encima de la superficie).
+
+En la web de copernicus, he ido abajo del todo del download para aceptar términos y condiciones, me h emetido en el perfil y he buscado la API-KEY, necesaria para poder usar sus datos desde mi notebook, y tener python conectado a los datos de la Agencia Espacial Europea.
+
+
+Como queremos **$U_{10}$**, buscando en los parámetros descargables, tenemos 
+- 10m u-component of wind
+- 10m v-component of wind
+
+Estos son los que nos interesan, siendo 
+
+- u : + hacia el Este, - hacia el Oeste
+- v : + hacia el Norte, - hacia el Sur
+
+  Entonces, nosotros tomaremos:
+
+  $U_{10}=\sqrt{u^2+v^2}$
+
+  Donde no estamos teniendo en cuenta la dirección del viento, porque para el método IME solo interesa el modulo, que nos indica como de rápido se dispersa.
+
+  En cualquier caso, si quisieramos saber la dirección, podemos usar arctan(v/u).
+
+  Necesitamos saber a que hora se miden los datos de TROPOMI, para tomar el dato del viento a esa hora aproximada en ERA5. Teniendo en cuenta que tantpo TROPOMI como ERA5 nos dan los datos en horario UTC +0, viendo la hora a la que pasa TROPOMI al medir cada dato, hicimo sla prueba en Marzo 2024, 03/2024, y el horario en el que setomaron dichos datos variaba entre las 13:33 y las 14:49
+
+  
+
+  
   
  
 
