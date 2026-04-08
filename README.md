@@ -399,10 +399,148 @@ Estos son los que nos interesan, siendo
 Necesitamos saber a que hora se miden los datos de TROPOMI, para tomar el dato del viento a esa hora aproximada en ERA5. Teniendo en cuenta que tantpo TROPOMI como ERA5 nos dan los datos en horario UTC +0, viendo la hora a la que pasa TROPOMI al medir cada dato, hicimo sla prueba en Marzo 2024, 03/2024, y el horario en el que setomaron dichos datos variaba entre las 13:33 y las 14:49
 
   
+# Día 12 (08/04/2026)  
+## Propagación básica de incertidumbre en $(U_{\text{eff}})$ y segmentación
 
+---
+
+### 1. Propagación de error en Q
+
+$$
+\left(\frac{\sigma_Q}{Q}\right)^2 =
+\left(\frac{\sigma_{IME}}{IME}\right)^2 +
+\left(\frac{\sigma_{U_{\text{eff}}}}{U_{\text{eff}}}\right)^2 +
+\left(\frac{\sigma_L}{L}\right)^2
+$$
+
+Dado que IME y \(L\) son variables dependientes, podemos agrupar su error en uno solo, llamado **error de segmentación** (Varon et al. 2018):
+
+$$
+\epsilon_Q = \frac{\sigma_Q}{Q} = \sqrt{\epsilon_{\text{seg}}^2 + \epsilon_{U_{\text{eff}}}^2}
+$$
+
+Donde:
+
+- $(\sigma)$: error absoluto  
+- $(\epsilon)$: error relativo  
+
+---
+
+### 2. Objetivo
+
+Se busca estimar:
+
+- $(\epsilon_{\text{seg}})$ → error de segmentación  
+- $(\epsilon_{U_{\text{eff}}})$ → error del viento efectivo  
+
+---
+
+### 3. Error en el viento $(U_{\text{eff}})$
+
+Se toman como referencia:
+
+- $(\sigma_u = 1.5 \, \text{m/s})$  
+- $(\sigma_v = 1.5 \, \text{m/s})$
+
+Estos valores provienen de datos de ERA5, y se encuentran dentro del rango típico de la literatura (1–2 m/s), por lo que se adopta el valor medio.
+
+
+#### 3.1. Definición de $(U_{\text{eff}})$
+
+A partir de:
+
+$$
+U_{\text{eff}} = \alpha_1 \log(U_{10}) + \alpha_2
+$$
+
+y sabiendo que:
+
+$$
+U_{10} = \sqrt{u^2 + v^2}
+$$
+
+entonces:
+
+$$
+U_{\text{eff}} = \alpha_1 \log\left(\sqrt{u^2 + v^2}\right) + \alpha_2
+$$
+
+
+#### 3.2. Propagación de errores
+
+Partimos de:
+
+$$
+U_{\text{eff}} = \alpha_1 \log(U_{10}) + \alpha_2
+$$
+
+Derivamos respecto a $(U_{10})$:
+
+$$
+\frac{dU_{\text{eff}}}{dU_{10}} = \frac{\alpha_1}{U_{10}}
+$$
+
+Aplicamos propagación de errores:
+
+$$
+\sigma_{U_{\text{eff}}} =
+\left| \frac{dU_{\text{eff}}}{dU_{10}} \right| \sigma_{U_{10}}
+$$
+
+Sustituyendo:
+
+$$
+\sigma_{U_{\text{eff}}} =
+\frac{\alpha_1}{U_{10}} \, \sigma_{U_{10}}
+$$
+
+
+#### 3.3. Error relativo de $(U_{\text{eff}})$
+
+$$
+\frac{\sigma_{U_{\text{eff}}}}{U_{\text{eff}}} =
+\frac{\alpha_1}{U_{10}} \cdot \frac{\sigma_{U_{10}}}{U_{\text{eff}}}
+$$
+
+
+#### 3.4. Error en $(U_{10})$
+
+Tomando:
+
+$$
+\sigma_u = \sigma_v = 1.5m/s
+$$
+
+y usando:
+
+$$
+U_{10} = \sqrt{u^2 + v^2}
+$$
+
+entonces:
+
+$$
+\sigma_{U_{10}} \approx 1.5 \, \text{m/s}
+$$
+
+
+#### 3.5. Resultado final
+
+Sustituyendo:
+
+$$
+\sigma_{U_{\text{eff}}} =
+\frac{\alpha_1 \cdot 1.5}{U_{10}}
+$$
   
-  
- 
+Por lo que nos queda:
+
+$$
+\epsilon_{U_{\text{eff}}} = \frac{\sigma_{U_{\text{eff}}}}{U_{\text{eff}}}
+$$
+
+---
+### 4. Error segmentación $(\epsilon_{\text{seg}})$
 
 
 
