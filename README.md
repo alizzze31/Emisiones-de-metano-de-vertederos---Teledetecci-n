@@ -540,7 +540,46 @@ $$
 $$
 
 ---
+
+# Día 14 
 ### 4. Error segmentación $(\epsilon_{\text{seg}})$
+
+Para obtener este error, primero necesitamos definir $\sigma_{fondo}$. 
+1. Vamos a tomar los pixeles de fondo que no contengan la pluma de metano.
+2. Calculamos la media de los pixeles $\mu_{fondo}$.
+3. Calculamos la desviación estándar:
+
+$$
+\sigma_{fondo} = \sqrt{\frac{1}{N}\sum^N_{i=1} (X_i - \mu_{fondo})^2}
+$$
+
+$X_i$: concentración en cada pixel
+$N$: número de pixeles de fondo
+
+Para obtener $(\epsilon_{\text{seg}})$, vamos a seguir un procedimiento. Vamos a calcular la emision $Q= \frac{IME\cdot U}{L}$, mínimo dos veces, con dos filtros.
+Ejemplo: 
+
+1. Filtro $2\sigma_{fondo}$: tommaos todos los pixeles que superen 2 veces el ruido de fondo y calculamos Q1.
+2. Filtro $3\sigma_{fondo}$: tommaos todos los pixeles que superen 3 veces el ruido de fondo y calculamos Q2.
+3. Calculamos el **Valor medio**: $Q_{\text{media}} = \frac{Q_1 + Q_2}{2}$
+
+
+$\sigma_{seg}$, serál adesviación estandar de esos 2 calculos. 
+
+Al tener dos estimaciones, la desviación estándar se calcula como: $\sigma_{\text{seg}} = \frac{|Q_1 - Q_2|}{\sqrt{2}}$
+
+Finalmente, obtenemos  el **Error relativo de segmentación**:
+
+$$
+\epsilon_{\text{seg}} = \frac{\sigma_{\text{seg}}}{Q_{\text{media}}}
+$$
+
+## Error relativo total 
+$$
+\epsilon_Q = \sqrt{\epsilon^2_{seg}+{\epsilon_u^2}}
+$$
+
+
 
 
 
