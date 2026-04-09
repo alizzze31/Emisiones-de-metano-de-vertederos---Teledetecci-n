@@ -491,7 +491,7 @@ Sustituyendo:
 
 $$
 \sigma_{U_{\text{eff}}} =
-\frac{\alpha_1}{U_{10}} \, \sigma_{U_{10}}
+\frac{\alpha_1}{U_{10}} \ \sigma_{U_{10}}
 $$
 
 
