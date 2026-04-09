@@ -447,19 +447,7 @@ Estos valores provienen de datos de ERA5, y se encuentran dentro del rango típi
 
 #### 3.1. Definición de $(U_{\text{eff}})$
 
-A partir de:
-
-$$
-U_{\text{eff}} = \alpha_1 \log(U_{10}) + \alpha_2
-$$
-
-y sabiendo que:
-
-$$
-U_{10} = \sqrt{u^2 + v^2}
-$$
-
-entonces:
+A partir de $U_{\text{eff}} = \alpha_1 \log(U_{10}) + \alpha_2$, y sabiendo que $U_{10} = \sqrt{u^2 + v^2}$, entonces:
 
 $$
 U_{\text{eff}} = \alpha_1 \log\left(\sqrt{u^2 + v^2}\right) + \alpha_2
@@ -468,11 +456,7 @@ $$
 
 #### 3.2. Propagación de errores
 
-Partimos de:
-
-$$
-U_{\text{eff}} = \alpha_1 \log(U_{10}) + \alpha_2
-$$
+Partimos de $U_{\text{eff}} = \alpha_1 \log(U_{10}) + \alpha_2$
 
 Derivamos respecto a $(U_{10})$:
 
@@ -505,23 +489,8 @@ $$
 
 #### 3.4. Error en $(U_{10})$
 
-Tomando:
+Tomando $\sigma_u = \sigma_v = 1.5m/s$ y usando $U_{10} = \sqrt{u^2 + v^2}$, llegamos a que $\sigma_{U_{10}} \approx 1.5 \, \text{m/s}$
 
-$$
-\sigma_u = \sigma_v = 1.5m/s
-$$
-
-y usando:
-
-$$
-U_{10} = \sqrt{u^2 + v^2}
-$$
-
-entonces:
-
-$$
-\sigma_{U_{10}} \approx 1.5 \, \text{m/s}
-$$
 
 
 #### 3.5. Resultado final
