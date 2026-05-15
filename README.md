@@ -27,7 +27,7 @@ El proyecto evalúa conjuntamente la evolución geomecánica (subsidencia) y las
   * **Sentinel-5P (TROPOMI):** Datos L2 de metano *bias corrected*.
   * **ECMWF ERA5:** Componentes del viento a 10 metros ($u_{10}$ y $v_{10}$).
 
-## 🚀 Resultados Destacados
+## Resultados Destacados
 * Desarrollo de un algoritmo que proyecta el movimiento diagonal de la línea de visión (LOS) del radar para detectar hundimientos extremos de hasta -102.9 mm/año en celdas antiguas de Arico.
 * Implementación exitosa del método IME en Valdemingómez, estimando una tasa de emisión de 9.6 t/h.
 * Análisis crítico de la influencia orográfica sobre las detecciones de TROPOMI en Canarias (efecto de la rugosidad del terreno).
