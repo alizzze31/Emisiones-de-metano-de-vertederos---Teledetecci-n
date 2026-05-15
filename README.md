@@ -12,11 +12,11 @@ El proyecto evalúa conjuntamente la evolución geomecánica (subsidencia) y las
 ## 📂 Estructura del Repositorio
 
 * `/notebooks/`: Contiene los Jupyter Notebooks con el flujo de trabajo principal.
-  * `01_descarga_datos.ipynb`: Scripts para la consulta y descarga de datos L2 de TROPOMI y viento de ERA5.
-  * `02_calculo_subsidencia_InSAR.ipynb`: Descomposición de datos InSAR de alta resolución (L2B) en velocidades vertical y horizontal.
-  * `03_analisis_rugosidad_orografia.ipynb`: Análisis del impacto orográfico y rugosidad del terreno en la disponibilidad de datos satelitales en Canarias.
-  * `04_cuantificacion_IME_Madrid.ipynb`: Aislamiento de plumas y aplicación del método IME para el vertedero de Valdemingómez.
-  * `05_analisis_metano_Tenerife.ipynb`: Análisis de dispersión y evaluación de fuentes en el Complejo Ambiental de Arico bajo diferentes regímenes de viento.
+  * `01_Descarga_datos.ipynb`: Scripts para la consulta y descarga de datos L2 de TROPOMI y viento de ERA5.
+  * `02_Subsidencia_InSAR.ipynb`: Descomposición de datos InSAR de alta resolución (L2B) en velocidades vertical y horizontal.
+  * `03_Analisis_Rugosidad_Tenerife.ipynb`: Análisis del impacto orográfico y rugosidad del terreno en la disponibilidad de datos satelitales en Canarias.
+  * `04_Representar_yc_uantificar_metano_Madrid.ipynb`: Aislamiento de plumas y aplicación del método IME para el vertedero de Valdemingómez.
+  * `05_Analisis_Completo_Tenerife.ipynb`: Análisis de dispersión y evaluación de fuentes en el Complejo Ambiental de Arico bajo diferentes regímenes de viento.
 * `/data/`: (Ignorada en GitHub por límite de peso). Estructura local recomendada para ejecutar los notebooks:
   * `/rugosidad/`: Datos de topografía (SRTM) para el cálculo de rugosidad.
   * `/InSAR/`: Archivos EGMS L2B (ascendente y descendente) y productos L3 oficiales.
