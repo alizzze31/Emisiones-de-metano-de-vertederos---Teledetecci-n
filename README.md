@@ -12,12 +12,19 @@ El proyecto evalúa conjuntamente la evolución geomecánica (subsidencia) y las
 ## 📂 Estructura del Repositorio
 
 * `/notebooks/`: Contiene los Jupyter Notebooks con el flujo de trabajo principal.
-  * `01_descarga_datos_TROPOMI_ERA5.ipynb`: Scripts para la consulta, descarga y filtrado de datos L2 de TROPOMI y viento de ERA5.
-  * `02_calculo_subsidencia_InSAR.ipynb`: Descomposición de datos InSAR de alta resolución (L2B) en velocidades vertical y horizontal (este-oeste).
-  * `03_cuantificacion_IME_Madrid.ipynb`: Aislamiento de plumas, análisis del fondo atmosférico y aplicación del método IME para el vertedero de Valdemingómez.
-  * `04_analisis_Tenerife.ipynb`: Análisis de dispersión y evaluación de fuentes en el Complejo Ambiental de Arico bajo diferentes regímenes de viento (Alisios vs SW).
-* `/data/`: (No subida al repositorio por peso). Estructura para almacenar los archivos NetCDF y Excel generados.
-* `/docs/`: Incluye la memoria completa del proyecto en PDF con los resultados, discusión técnica y mapas generados.
+  * `01_descarga_datos.ipynb`: Scripts para la consulta y descarga de datos L2 de TROPOMI y viento de ERA5.
+  * `02_calculo_subsidencia_InSAR.ipynb`: Descomposición de datos InSAR de alta resolución (L2B) en velocidades vertical y horizontal.
+  * `03_analisis_rugosidad_orografia.ipynb`: Análisis del impacto orográfico y rugosidad del terreno en la disponibilidad de datos satelitales en Canarias.
+  * `04_cuantificacion_IME_Madrid.ipynb`: Aislamiento de plumas y aplicación del método IME para el vertedero de Valdemingómez.
+  * `05_analisis_metano_Tenerife.ipynb`: Análisis de dispersión y evaluación de fuentes en el Complejo Ambiental de Arico bajo diferentes regímenes de viento.
+* `/data/`: (Ignorada en GitHub por límite de peso). Estructura local recomendada para ejecutar los notebooks:
+  * `/rugosidad/`: Datos de topografía (SRTM) para el cálculo de rugosidad.
+  * `/InSAR/`: Archivos EGMS L2B (ascendente y descendente) y productos L3 oficiales.
+  * *Archivos NetCDF y Excel generados con datos de TROPOMI y ERA5.*
+* `/docs/`: Incluye la memoria del proyecto y documentación técnica de soporte.
+  * `Memoria_Practicas_Teledeteccion_Metano.pdf`: Informe final del proyecto con la metodología, resultados y discusión.
+  * `Manual_TROPOMI_L2_Metano.pdf`: Documentación técnica oficial del sensor Sentinel-5P de la ESA.
+  * `Articulo_Referencia_Madrid.pdf`: Estudio científico (Tu et al., 2022) utilizado para la validación de emisiones en Valdemingómez.
 
 ## Tecnologías y Datos Utilizados
 * **Lenguajes y Entornos:** Python, Jupyter Notebook, Google Colab.
